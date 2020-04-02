@@ -17,25 +17,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   TextEditingController _displayName = TextEditingController();
   DocumentSnapshot me;
 
-  @override
-  void dispose() {
-    _firstName.dispose();
-    _lastName.dispose();
-    _nickname.dispose();
-    _displayName.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    widget.app.me().get().then((snapshot) {
-      setState(() {
-        me = snapshot;
-        _refreshData();
-      });
-    });
-  }
+  bool displayDefault = true;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +59,78 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
             ),
           );
+  }
+
+  displayChanged(_) {
+    displayDefault =
+        "${_firstName.text.trim()} ${_lastName.text.trim()}".trim() ==
+            _displayName.text.trim();
+  }
+
+  @override
+  void dispose() {
+    _firstName.dispose();
+    _lastName.dispose();
+    _nickname.dispose();
+    _displayName.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    widget.app.me().get().then((snapshot) {
+      setState(() {
+        me = snapshot;
+        _refreshData();
+      });
+    });
+  }
+
+  updateDisplay(_) {
+    if (displayDefault) {
+      _displayName.text =
+          "${_firstName.text.trim()} ${_lastName.text.trim()}".trim();
+    }
+  }
+
+  Widget _displayNameField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "Display Name",
+      ),
+      controller: _displayName,
+      onChanged: displayChanged,
+    );
+  }
+
+  Widget _firstNameField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "First Name",
+      ),
+      controller: _firstName,
+      onChanged: updateDisplay,
+    );
+  }
+
+  Widget _lastNameField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "Last Name",
+      ),
+      controller: _lastName,
+      onChanged: updateDisplay,
+    );
+  }
+
+  Widget _nicknameField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: "Nickname",
+      ),
+      controller: _nickname,
+    );
   }
 
   _refreshData() {
@@ -122,59 +176,5 @@ class _EditProfilePageState extends State<EditProfilePage> {
               title: Text("Error"),
               content: content,
             ));
-  }
-
-  Widget _firstNameField() {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: "First Name",
-      ),
-      controller: _firstName,
-      onChanged: updateDisplay,
-    );
-  }
-
-  Widget _lastNameField() {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: "Last Name",
-      ),
-      controller: _lastName,
-      onChanged: updateDisplay,
-    );
-  }
-
-  Widget _nicknameField() {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: "Nickname",
-      ),
-      controller: _nickname,
-    );
-  }
-
-  Widget _displayNameField() {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: "Display Name",
-      ),
-      controller: _displayName,
-      onChanged: displayChanged,
-    );
-  }
-
-  updateDisplay(_) {
-    if (displayDefault) {
-      _displayName.text =
-          "${_firstName.text.trim()} ${_lastName.text.trim()}".trim();
-    }
-  }
-
-  bool displayDefault = true;
-
-  displayChanged(_) {
-    displayDefault =
-        "${_firstName.text.trim()} ${_lastName.text.trim()}".trim() ==
-            _displayName.text.trim();
   }
 }

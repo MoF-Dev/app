@@ -45,10 +45,13 @@ class _ProfilePageState extends State<ProfilePage> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.all(28),
-                child: CircleAvatar(
-                  radius: 48,
-                  backgroundColor: Theme.of(context).hintColor,
-                  child: Text('DP'),
+                child: Center(
+                  child: CircleAvatar(
+                    radius: 48,
+                    backgroundColor: Theme.of(context).hintColor,
+                    backgroundImage: AssetImage("assets/images/jitou.jpg"),
+                    child: Text('DP'),
+                  ),
                 ),
               ),
               Center(
@@ -72,6 +75,32 @@ class _ProfilePageState extends State<ProfilePage> {
         );
       },
     );
+  }
+
+  Future<void> _confirmLogout() async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Logout"),
+            content: Text("Are you sure you want to logout?"),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("Cancel"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              FlatButton(
+                child: Text("Logout"),
+                onPressed: () {
+                  widget.app.logout();
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
   }
 
   _displayName(AsyncSnapshot<DocumentSnapshot> snapshot) {
@@ -109,31 +138,5 @@ class _ProfilePageState extends State<ProfilePage> {
         },
       ),
     );
-  }
-
-  Future<void> _confirmLogout() async {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Logout"),
-            content: Text("Are you sure you want to logout?"),
-            actions: <Widget>[
-              FlatButton(
-                child: Text("Cancel"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              FlatButton(
-                child: Text("Logout"),
-                onPressed: () {
-                  widget.app.logout();
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        });
   }
 }
