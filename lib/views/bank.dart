@@ -25,7 +25,7 @@ class _BankPageState extends State<BankPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("OMG",
+            Text("OMG!",
                 style: TextStyle(
                     fontSize: 64,
                     color: Colors.white,

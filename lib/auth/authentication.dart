@@ -33,11 +33,13 @@ class Auth implements BaseAuth {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final FacebookLogin facebookLogin = FacebookLogin();
   final Firestore firestore = Firestore.instance;
+  FirebaseUser currentUser;
 
   Future<String> signIn(String email, String password) async {
     AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
     FirebaseUser user = result.user;
+    currentUser = user;
     return user.uid;
   }
 
@@ -61,11 +63,13 @@ class Auth implements BaseAuth {
 
   Future<FirebaseUser> getCurrentUser() async {
     FirebaseUser user = await _firebaseAuth.currentUser();
+    currentUser = user;
     return user;
   }
 
   Future<void> signOut() async {
-    return _firebaseAuth.signOut();
+    await _firebaseAuth.signOut();
+    currentUser = null;
   }
 
   Future<String> signInWithGoogle() async {
@@ -85,7 +89,7 @@ class Auth implements BaseAuth {
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
 
-    final FirebaseUser currentUser = await _firebaseAuth.currentUser();
+    currentUser = await _firebaseAuth.currentUser();
     assert(user.uid == currentUser.uid);
 
     print('signInWithGoogle succeeded: $user');
@@ -94,6 +98,7 @@ class Auth implements BaseAuth {
 
   void signOutGoogle() async {
     await googleSignIn.signOut();
+    currentUser = null;
 
     print("User Sign Out");
   }
@@ -104,11 +109,13 @@ class Auth implements BaseAuth {
     print('signed in with facebook user: ' + result.accessToken.userId);
     var fireResult = await _firebaseAuth.signInWithCredential(
         FacebookAuthProvider.getCredential(accessToken: token));
+    currentUser = fireResult.user;
     return fireResult.user.uid;
   }
 
   void signOutFacebook() async {
     await facebookLogin.logOut();
+    currentUser = null;
     print("Facebook logged out");
   }
 
