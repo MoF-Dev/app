@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mof_friends/views/appview.dart';
 import 'package:mof_friends/views/bank.dart';
 import 'package:mof_friends/views/home.dart';
-import 'package:mof_friends/views/profile.dart';
+import 'package:mof_friends/views/profile/profile.dart';
 
 class MainPage extends AppWidget {
   MainPage({@required app, Key key}) : super(app: app, key: key);

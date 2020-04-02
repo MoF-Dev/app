@@ -1,4 +1,4 @@
-# friends
+# MoF Portal
 
 A new Flutter MoF application.
 
