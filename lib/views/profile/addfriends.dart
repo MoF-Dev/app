@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mof_friends/views/appview.dart';
 
-class AddFriendPage extends AppWidget {
-  AddFriendPage({@required app}) : super(app: app);
+class AddFriendsPage extends AppWidget {
+  AddFriendsPage({@required app}) : super(app: app);
 
   @override
-  State<StatefulWidget> createState() => new _AddFriendPageState();
+  State<StatefulWidget> createState() => new _AddFriendsPageState();
 }
 
-class _AddFriendPageState extends State<AddFriendPage> {
+class _AddFriendsPageState extends State<AddFriendsPage> {
   String _searchText = "";
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mof_friends/views/appview.dart';
-import 'package:mof_friends/views/profile/addfriend.dart';
+import 'package:mof_friends/views/profile/addfriends.dart';
 
 class ProfilePage extends AppWidget {
   ProfilePage({@required app}) : super(app: app);
@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (ctx) => AddFriendPage(app: widget.app)));
+                    builder: (ctx) => AddFriendsPage(app: widget.app)));
           },
         ),
         title: Text("@username"),
