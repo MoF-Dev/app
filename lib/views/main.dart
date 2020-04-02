@@ -24,6 +24,23 @@ class _MainPageState extends State<MainPage> {
   final List<TabEntry> _children = [];
 
   @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: _children[_currentIndex].widget,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: onTabTapped,
+        items: _children
+            .map((e) => BottomNavigationBarItem(
+                  icon: new Icon(e.icon),
+                  title: new Text(e.title),
+                ))
+            .toList(),
+      ),
+    );
+  }
+
+  @override
   void initState() {
     super.initState();
     _children.addAll([
@@ -43,23 +60,6 @@ class _MainPageState extends State<MainPage> {
         widget: new ProfilePage(app: widget.app),
       ),
     ]);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: _children[_currentIndex].widget,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: onTabTapped,
-        items: _children
-            .map((e) => BottomNavigationBarItem(
-                  icon: new Icon(e.icon),
-                  title: new Text(e.title),
-                ))
-            .toList(),
-      ),
-    );
   }
 
   void onTabTapped(int index) {
