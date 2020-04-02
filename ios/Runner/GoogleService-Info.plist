@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1043553461233-6nfoaklmas0i963saluhtp9trscqj1i6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1043553461233-6nfoaklmas0i963saluhtp9trscqj1i6</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1043553461233-01bae19pvjcsaon3src140dm1o390h46.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC11xmpwCfi2reJRw_NK-wqVETVfoFcTl8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1043553461233</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>moe.mof.friends</string>
+	<key>PROJECT_ID</key>
+	<string>mof-friends</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mof-friends.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1043553461233:ios:3442de27d7678c6d4b5a50</string>
+	<key>DATABASE_URL</key>
+	<string>https://mof-friends.firebaseio.com</string>
+</dict>
+</plist>

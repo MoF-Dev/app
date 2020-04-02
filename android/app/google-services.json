@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "1043553461233",
+    "firebase_url": "https://mof-friends.firebaseio.com",
+    "project_id": "mof-friends",
+    "storage_bucket": "mof-friends.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043553461233:android:31950839123b3a624b5a50",
+        "android_client_info": {
+          "package_name": "moe.mof.friends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043553461233-iebiq2ngucgukp51p4mcaqs4hibvpuum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDimdfGL0R2NhxkjmKOThmNI-TZENYbm8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043553461233-iebiq2ngucgukp51p4mcaqs4hibvpuum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043553461233:android:0089cce1bf3956b5",
+        "android_client_info": {
+          "package_name": "th.in.mihome.moffriends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043553461233-01bae19pvjcsaon3src140dm1o390h46.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "th.in.mihome.moffriends",
+            "certificate_hash": "1f0b9f372f1917e3c75d6b89fd27fcc361d655fb"
+          }
+        },
+        {
+          "client_id": "1043553461233-iebiq2ngucgukp51p4mcaqs4hibvpuum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDimdfGL0R2NhxkjmKOThmNI-TZENYbm8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043553461233-iebiq2ngucgukp51p4mcaqs4hibvpuum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
